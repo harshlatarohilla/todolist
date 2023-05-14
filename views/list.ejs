@@ -17,8 +17,8 @@
     <div class="box">
 
         <% for(var i=0;i<newListItems.length;i++){ %>
-            <div class="item">
-                <input type="checkbox" name="" value="<%= newListItems[i] %>">
+            <label for="<%= newListItems[i] %>" class="item">
+                <input type="checkbox" id="<%= newListItems[i] %>" name="" value="<%= newListItems[i] %>">
                 <p>
                     <%= newListItems[i] %>
                 </p>
@@ -26,19 +26,25 @@
                 <Form action="/" method="post">
                     <button class="deleteItem" type="submit" name="delete" value="<%= newListItems[i] %>">-</button>
                 </Form>
-            </div>
+
+            </label>
             <% } %>
 
                 <Form class="item" action="/" method="post">
 
-                    <input type="text" name="newItem" placeholder="New Item" />
+                    <input type="text" id="newItemInput" name="newItem" placeholder="New Item" />
 
                     <button class="addItem" type="submit" name="button">+</button>
                 </Form>
-            </div>
-            <footer>
-                &copy 2023
-            </footer>
+    </div>
+    <footer>
+        &copy; <%= year%>
+    </footer>
+
+    <script>
+        const inputField = document.getElementById("newItemInput");
+        inputField.focus();
+    </script>
 </body>
 
 </html>

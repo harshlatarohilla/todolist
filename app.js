@@ -1,22 +1,28 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-
 const app = express();
-var items = ["water", "air"];
-var item = "";
+const port = process.env.PORT || 3000;
+
+//environment variables
+const dotenv = require("dotenv");
+dotenv.config();
+let items = ["water", "air"];
+let item = "";
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
 app.get("/", (req, res) => {
-  var today = new Date();
+  let today = new Date();
   const options = {
     weekday: "long",
     month: "long",
     day: "numeric",
   };
-  var day = today.toLocaleDateString("en-US", options);
-  var year = today.getFullYear;
+  let day = today.toLocaleDateString("en-US", options);
+  let year = today.getFullYear();
+
   res.render("list", {
     kindOfDay: day,
     newListItems: items,
@@ -33,7 +39,6 @@ app.post("/", (req, res) => {
   }
 
   // DELETE button
-  console.log(req.body);
   if (req.body.delete) {
     const index = items.indexOf(req.body.delete);
     if (index > -1) {
@@ -45,6 +50,6 @@ app.post("/", (req, res) => {
   res.redirect("/");
 });
 
-app.listen(3000, function () {
-  console.log("server on 3000");
+app.listen(port, () => {
+  console.log(`Flying on port ${port}`);
 });

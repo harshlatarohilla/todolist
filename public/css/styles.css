@@ -1,7 +1,8 @@
 :root {
     --purple: #D9ACF5;
     --pink: #FDE2F3;
-    --blue: #295461;
+    --blue: #917FB3;
+    --darkBlue: #2A2F4F
 }
 
 html {
@@ -16,7 +17,6 @@ body {
     overflow-x: hidden;
     /* Hide horizontal scrollbar */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
 }
 
 h1 {
@@ -34,9 +34,12 @@ p {
     color: var(--blue);
 }
 
+label {
+    z-index: -1;
+}
+
 form {
     text-align: center;
-    margin-left: 20px;
 }
 
 footer {
@@ -73,6 +76,10 @@ footer {
     padding: 0 10px;
 }
 
+.item:hover {
+    background-image: linear-gradient(rgb(0 0 0/3.5%) 0 0);
+}
+
 .item:last-child {
     border-bottom: 0;
 }
@@ -84,7 +91,7 @@ footer {
 
 input:checked+p {
     text-decoration: line-through;
-    text-decoration-color: var(--purple);
+    text-decoration-color: var(--darkBlue);
 }
 
 .deleteItem {
@@ -100,13 +107,12 @@ input:checked+p {
     font-weight: bold;
     cursor: pointer;
     transition-duration: 0.4s;
+    outline: none;
 }
 
 .deleteItem:hover {
     background-color: #C689C6;
-    border: none;
     box-shadow: 1px 4px 5px rgba(87, 87, 87, 0.5);
-
 }
 
 .addItem {
@@ -121,6 +127,7 @@ input:checked+p {
     border-width: 0;
     margin-left: 9px;
     transition-duration: 0.4s;
+    outline: none;
 }
 
 .addItem:hover,
@@ -131,8 +138,6 @@ input:checked+p {
     color: var(--purple);
 }
 
-
-
 input[type='text'] {
     text-align: center;
     height: 60px;
@@ -142,16 +147,19 @@ input[type='text'] {
     font-weight: 200;
     width: 302px;
     margin: 1px;
+    padding-left: 10px;
+    color: var(--purple);
 }
 
 input[type='text']:focus {
     outline: none;
+    color: var(--blue);
     box-shadow: inset 0 -3px 0 0 var(--purple);
 }
 
 
 ::placeholder {
-    color: grey;
-    opacity: 1;
+    color: var(--blue);
+    opacity: 0.8;
 
 }
