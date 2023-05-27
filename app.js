@@ -1,11 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const port = process.env.PORT || 3000;
 
-//environment variables
-const dotenv = require("dotenv");
-dotenv.config();
 let items = ["water", "air"];
 let item = "";
 
@@ -50,6 +46,6 @@ app.post("/", (req, res) => {
   res.redirect("/");
 });
 
-app.listen(port, () => {
-  console.log(`Flying on port ${port}`);
+app.listen(3000, () => {
+  console.log(`Flying on port 3000`);
 });
