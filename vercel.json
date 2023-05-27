@@ -1,5 +1,4 @@
 {
-  "version": "14.x",
   "builds": [
     {
       "src": "app.js",
