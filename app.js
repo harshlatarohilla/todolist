@@ -25,18 +25,18 @@ const item3 = new Item({ name: "Air" });
 const defaultItems = [item1, item2, item3];
 
 app.get("/", (req, res) => {
-  // Item.find({}).then((result) => {
-  //   //  if(result.length==0){
-  //   if (!result.length) {
-  //     Item.insertMany(defaultItems).then(console.log("Inserted item values"));
-  //     res.redirect("/");
-  //   } else {
-  //     res.render("list", {
-  //       title: "Today",
-  //       newListItems: result,
-  //     });
-  //   }
-  // });
+  Item.find({}).then((result) => {
+    //  if(result.length==0){
+    if (!result.length) {
+      Item.insertMany(defaultItems).then(console.log("Inserted item values"));
+      res.redirect("/");
+    } else {
+      res.render("list", {
+        title: "Today",
+        newListItems: result,
+      });
+    }
+  });
 });
 
 app.get("/:customListName", (req, res) => {
@@ -96,11 +96,11 @@ mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("Connected to Database");
+
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
   })
   .catch((err) => {
     console.log(err);
   });
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
