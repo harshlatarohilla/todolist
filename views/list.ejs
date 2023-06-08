@@ -10,41 +10,35 @@
 <body>
     <div class="box" id="heading">
         <h1>
-            <%= kindOfDay %>
+            <%= title %>
         </h1>
     </div>
 
     <div class="box">
 
-        <% for(var i=0;i<newListItems.length;i++){ %>
-            <label for="<%= newListItems[i] %>" class="item">
-                <input type="checkbox" id="<%= newListItems[i] %>" name="" value="<%= newListItems[i] %>">
+        <% newListItems.forEach(item=> { %>
+
+            <Form class="item" action="/delete" method="post">
+                <input type="checkbox" name="checkbox" value="<%= item._id %>" onChange="this.form.submit()">
                 <p>
-                    <%= newListItems[i] %>
+                    <%= item.name %>
                 </p>
+                <input type="hidden" name="list" value="<%=title %>" />
 
-                <Form action="/" method="post">
-                    <button class="deleteItem" type="submit" name="delete" value="<%= newListItems[i] %>">-</button>
-                </Form>
+            </Form>
 
-            </label>
-            <% } %>
+            <% }) %>
 
                 <Form class="item" action="/" method="post">
-
-                    <input type="text" id="newItemInput" name="newItem" placeholder="New Item" />
-
-                    <button class="addItem" type="submit" name="button">+</button>
+                    <input type="text" name="newItem" placeholder="New Item" autofocus />
+                    <button class="addItem" type="submit" value="<%=title %>" name="list">+</button>
                 </Form>
     </div>
     <footer>
-        &copy; <%= year%>
+        &copy; Tesla Corp
     </footer>
 
-    <script>
-        const inputField = document.getElementById("newItemInput");
-        inputField.focus();
-    </script>
+
 </body>
 
 </html>

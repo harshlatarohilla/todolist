@@ -12,7 +12,7 @@ html {
 }
 
 body {
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     /* Hide vertical scrollbar */
     overflow-x: hidden;
     /* Hide horizontal scrollbar */
@@ -35,19 +35,20 @@ p {
 }
 
 label {
-    z-index: -1;
+    /* z-index: -1; */
 }
-
+/* 
 form {
     text-align: center;
 }
+    */
 
 footer {
     color: #fff;
     text-align: center;
     bottom: 0;
     width: 100%;
-    position: absolute;
+    position: fixed;
     color: var(--blue);
     padding: 10px;
 }
@@ -93,7 +94,7 @@ input:checked+p {
     text-decoration: line-through;
     text-decoration-color: var(--darkBlue);
 }
-
+/* 
 .deleteItem {
     border-radius: 50%;
     border: none;
@@ -113,7 +114,7 @@ input:checked+p {
 .deleteItem:hover {
     background-color: #C689C6;
     box-shadow: 1px 4px 5px rgba(87, 87, 87, 0.5);
-}
+} */
 
 .addItem {
     min-height: 50px;
